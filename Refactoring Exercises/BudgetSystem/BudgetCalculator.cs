@@ -56,6 +56,10 @@ public class BudgetCalculator
 
         var endAmount = GetMonthAmount(end, budgets);
         var endDays = end.Day;
+
+        // Use Ctrl + Shift + N (IDEA Setting)
+        // 移除僅使用一次的變數，讓回傳邏輯更直接
+        // Remove single-use temporary variable to simplify return logic
         var amount2 = (endDays * endAmount / endMonth_TotalDays);
         return amount2;
     }
@@ -81,6 +85,10 @@ public class BudgetCalculator
         var startAmount = GetMonthAmount(start, budgets);
         var startMonth_TotalDays = DateTime.DaysInMonth(start.Year, start.Month);
         var strDays = startMonth_TotalDays - start.Day + 1;
+
+        // Use Ctrl + Shift + N (IDEA Setting)
+        // 移除僅使用一次的變數，讓回傳邏輯更直接
+        // Remove single-use temporary variable to simplify return logic
         var amount1 = (strDays * startAmount / startMonth_TotalDays);
         return amount1;
     }
