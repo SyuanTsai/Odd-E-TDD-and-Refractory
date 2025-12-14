@@ -30,6 +30,9 @@ public class BudgetCalculator
 
         if (Math.Abs(start.Month - end.Month) >= 2)
         {
+            // Use Shift + F6 (IDEA Setting)
+            // 修正變數拼字錯誤（toal → total），提升可讀性，不影響行為
+            // Fix variable name typo (toal → total) to improve readability without behavior change
             decimal toalInterval = 0;
             var tempDate = start.AddMonths(1);
             while (tempDate > start && tempDate < end)
