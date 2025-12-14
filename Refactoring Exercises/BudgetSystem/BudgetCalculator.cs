@@ -24,8 +24,8 @@ public class BudgetCalculator
             // Use Shift + F6 (IDEA Setting)
             // 修改無意義的 startAmount1 命名，避免誤以為有實際區分用途
             // Rename meaningless startAmount1 to avoid implying a functional distinction
-            var startAmount1 = GetMonthAmount(start, budgets);
-            return interval * startAmount1 / DateTime.DaysInMonth(end.Year, end.Month);
+            var startAmount = GetMonthAmount(start, budgets);
+            return interval * startAmount / DateTime.DaysInMonth(end.Year, end.Month);
         }
 
         if (Math.Abs(start.Month - end.Month) >= 2)
