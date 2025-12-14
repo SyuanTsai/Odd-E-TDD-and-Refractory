@@ -72,14 +72,7 @@ public class BudgetCalculator
         // Step 2 - Use Alt + Enter => Use null-coalescing expression (IDEA Setting)
         // 簡化 null 判斷邏輯，降低控制流程複雜度，不影響行為
         // Simplify null-check logic to reduce control flow complexity without behavior change
-        if (startMonthData == null)
-        {
-            return 0;
-        }
-        else
-        {
-            return startMonthData.Amount;
-        }
+        return startMonthData == null ? 0 : startMonthData.Amount;
     }
 
 
