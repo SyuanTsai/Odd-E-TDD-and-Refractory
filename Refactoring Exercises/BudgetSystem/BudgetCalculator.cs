@@ -32,23 +32,17 @@ public class BudgetCalculator
         // from if/else branching into a single accumulation flow for clearer cross-month calculation.
         // Instead of controlling the flow with conditional branches, define the data range
         // so the logic naturally applies.
-        // if (Math.Abs(start.Month - end.Month) >= 2)
-        // {
-            decimal totalInterval = 0;
-            var tempDate = start.AddMonths(1);
-            var middleEnd = new DateTime(end.Year, end.Month, 1);
-            while (tempDate > start && tempDate < middleEnd)
-            {
-                totalInterval += GetMonthAmount(tempDate, budgets);
-                tempDate = tempDate.AddMonths(1);
-            }
 
-            return StartAmount(start, budgets) + totalInterval + EndAmount(end, budgets);
-        // }
-        // else
-        // {
-        //     return StartAmount(start, budgets) + EndAmount(end, budgets);
-        // }
+        decimal totalInterval = 0;
+        var tempDate = start.AddMonths(1);
+        var middleEnd = new DateTime(end.Year, end.Month, 1);
+        while (tempDate > start && tempDate < middleEnd)
+        {
+            totalInterval += GetMonthAmount(tempDate, budgets);
+            tempDate = tempDate.AddMonths(1);
+        }
+
+        return StartAmount(start, budgets) + totalInterval + EndAmount(end, budgets);
     }
 
 
