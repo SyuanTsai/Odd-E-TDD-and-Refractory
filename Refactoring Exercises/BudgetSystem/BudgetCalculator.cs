@@ -20,6 +20,10 @@ public class BudgetCalculator
         if (start.ToString("yyyyMM") == end.ToString("yyyyMM"))
         {
             var interval = (end - start).Days + 1;
+
+            // Use Shift + F6 (IDEA Setting)
+            // 修改無意義的 startAmount1 命名，避免誤以為有實際區分用途
+            // Rename meaningless startAmount1 to avoid implying a functional distinction
             var startAmount1 = GetMonthAmount(start, budgets);
             return interval * startAmount1 / DateTime.DaysInMonth(end.Year, end.Month);
         }
