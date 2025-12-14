@@ -33,15 +33,15 @@ public class BudgetCalculator
             // Use Shift + F6 (IDEA Setting)
             // 修正變數拼字錯誤（toal → total），提升可讀性，不影響行為
             // Fix variable name typo (toal → total) to improve readability without behavior change
-            decimal toalInterval = 0;
+            decimal totalInterval = 0;
             var tempDate = start.AddMonths(1);
             while (tempDate > start && tempDate < end)
             {
-                toalInterval += GetMonthAmount(tempDate, budgets);
+                totalInterval += GetMonthAmount(tempDate, budgets);
                 tempDate = tempDate.AddMonths(1);
             }
 
-            return StartAmount(start, budgets) + toalInterval + EndAmount(end, budgets);
+            return StartAmount(start, budgets) + totalInterval + EndAmount(end, budgets);
         }
         else
         {
