@@ -17,7 +17,7 @@ public class BudgetCalculator
         }
 
         var budgets = _repo.GetAll();
-        if (start.Month == end.Month)
+        if (start.ToString("yyyyMM") == end.ToString("yyyyMM"))
         {
             var interval = (end - start).Days + 1;
             var startAmount1 = GetMonthAmount(start, budgets);
@@ -42,14 +42,6 @@ public class BudgetCalculator
         }
     }
 
-    private static decimal StartAmount(DateTime start, List<Budget> budgets)
-    {
-        var startAmount = GetMonthAmount(start, budgets);
-        var startMonth_TotalDays = DateTime.DaysInMonth(start.Year, start.Month);
-        var strDays = startMonth_TotalDays - start.Day + 1;
-        var amount1 = (strDays * startAmount / startMonth_TotalDays);
-        return amount1;
-    }
 
     private static decimal EndAmount(DateTime end, List<Budget> budgets)
     {
@@ -74,5 +66,15 @@ public class BudgetCalculator
         {
             return startMonthData.Amount;
         }
+    }
+
+
+    private static decimal StartAmount(DateTime start, List<Budget> budgets)
+    {
+        var startAmount = GetMonthAmount(start, budgets);
+        var startMonth_TotalDays = DateTime.DaysInMonth(start.Year, start.Month);
+        var strDays = startMonth_TotalDays - start.Day + 1;
+        var amount1 = (strDays * startAmount / startMonth_TotalDays);
+        return amount1;
     }
 }
