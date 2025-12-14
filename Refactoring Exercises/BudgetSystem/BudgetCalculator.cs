@@ -60,8 +60,7 @@ public class BudgetCalculator
         // Use Ctrl + Shift + N (IDEA Setting)
         // 移除僅使用一次的變數，讓回傳邏輯更直接
         // Remove single-use temporary variable to simplify return logic
-        var amount2 = (endDays * endAmount / endMonth_TotalDays);
-        return amount2;
+        return endDays * endAmount / endMonth_TotalDays;
     }
 
 
@@ -89,7 +88,6 @@ public class BudgetCalculator
         // Use Ctrl + Shift + N (IDEA Setting)
         // 移除僅使用一次的變數，讓回傳邏輯更直接
         // Remove single-use temporary variable to simplify return logic
-        var amount1 = (strDays * startAmount / startMonth_TotalDays);
-        return amount1;
+        return strDays * startAmount / startMonth_TotalDays;
     }
 }
