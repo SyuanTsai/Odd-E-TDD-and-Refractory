@@ -25,6 +25,13 @@ public class BudgetCalculator
             return interval * startAmount / DateTime.DaysInMonth(end.Year, end.Month);
         }
 
+        // Use Shift + F6 (IDEA Setting)
+        // 將 totalInterval 重新命名為 middleAmount，並將 tempDate 改為 currentDate，
+        // 明確表達中間月份的累計結果與實際迭代日期的角色，提升跨月份計算的可讀性。
+        // 與其依賴流程結構理解邏輯，不如透過命名直接表達資料角色。
+        // Rename totalInterval to middleAmount and tempDate to currentDate
+        // to clearly express the accumulated middle-month amount and the iterated date role.
+        // Prefer expressing intent through data naming rather than relying on control flow.
         decimal totalInterval = 0;
         var tempDate = start.AddMonths(1);
         var middleEnd = new DateTime(end.Year, end.Month, 1);
