@@ -25,6 +25,13 @@ public class BudgetCalculator
             return interval * startAmount / DateTime.DaysInMonth(end.Year, end.Month);
         }
 
+        // 透過明確定義「中間完整月份」的資料範圍，將原本依賴 if / else 的流程
+        // 重構為單一路徑的累加邏輯，使跨月份計算更直觀且易於理解。
+        // 與其用條件分流控制流程，不如先定義清楚資料範圍，讓流程自然成立。
+        // Define an explicit data range for full middle months and refactor the logic
+        // from if/else branching into a single accumulation flow for clearer cross-month calculation.
+        // Instead of controlling the flow with conditional branches, define the data range
+        // so the logic naturally applies.
         if (Math.Abs(start.Month - end.Month) >= 2)
         {
             decimal totalInterval = 0;
