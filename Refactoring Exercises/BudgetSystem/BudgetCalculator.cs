@@ -68,6 +68,10 @@ public class BudgetCalculator
     {
         var startMonthData = budgets.FirstOrDefault(a => a.YearMonth == start.ToString("yyyyMM"));
 
+        // Step 1 - Use Alt + Enter => Convert to '?:' operator (IDEA Setting)
+        // Step 2 - Use Alt + Enter => Use null-coalescing expression (IDEA Setting)
+        // 簡化 null 判斷邏輯，降低控制流程複雜度，不影響行為
+        // Simplify null-check logic to reduce control flow complexity without behavior change
         if (startMonthData == null)
         {
             return 0;
